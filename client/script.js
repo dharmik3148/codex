@@ -55,6 +55,7 @@ function chatStripe(isAi, value, uniqueId) {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+
   const data = new FormData(form);
 
   //user's chat stripe
@@ -73,10 +74,11 @@ const handleSubmit = async (e) => {
 
   //fetch data from server
 
-  const response = await fetch("http://localhost:5000/codex", {
+  const response = await fetch("http://localhost:5000/api", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      token: "$2y$10$Yy2c57wpkH0luB9jA/GzA.adWtIejNNJlJ9CfUAZfHqqa9.NsTrCe",
     },
     body: JSON.stringify({ prompt: data.get("prompt") }),
   });
